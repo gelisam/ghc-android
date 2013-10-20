@@ -63,7 +63,7 @@ function check_md5() {
     FILENAME="$1"
     MD5="$2"
     [ -e "${FILENAME}" ] || return 1;
-    [ "$(md5sum "$FILENAME" | cut -f1 -d ' ')" == "$MD5" ]
+    [ "$(md5sum < "$FILENAME")" == "$MD5" ]
 }
 
 function apply_patches() {
